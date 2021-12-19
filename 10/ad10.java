@@ -59,7 +59,7 @@ public class ad10 {
         return count;
     }
 
-    public static int part2(String[] input) {
+    public static long part2(String[] input) {
         List<Character> opn = Arrays.asList('(', '[', '{', '<');
         List<Character> cls = Arrays.asList(')', ']', '}', '>');
         Set<Character> open = new HashSet<>(opn);
@@ -117,6 +117,8 @@ public class ad10 {
                 incomplete.add(line);
         }
 
+        System.out.println(incomplete);
+
         // get lines that need completion
         List<String> completion = new ArrayList<>();
         for (String line : incomplete) {
@@ -155,10 +157,12 @@ public class ad10 {
             completor.add(s.toString());
         }
 
+        System.out.println(completor);
+
         // calculate scores
-        List<Integer> scores = new ArrayList<>();
+        List<Long> scores = new ArrayList<>();
         for (String line : completor) {
-            int total = 0;
+            long total = 0;
             for (char c : line.toCharArray()) {
                 total *= 5;
                 switch (c) {
@@ -171,7 +175,9 @@ public class ad10 {
             scores.add(total);
         }
         Collections.sort(scores);
+        System.out.println(scores);
         return scores.get((scores.size() - 1) / 2);
+        // 194061416 is too low
     }
 
     public static void main(String[] args) throws FileNotFoundException {
