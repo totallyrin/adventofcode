@@ -1,3 +1,5 @@
 .gitignore
-#.idea/
+adventofcode2021.iml
+.idea/
 out/
+
