@@ -4,7 +4,9 @@ import java.util.Scanner;
 
 public class ad12 {
     public static int part1(String[] input) {
-        return 0;
+        int count = 0;
+
+        return count;
     }
 
     public static int part2(String[] input) {
@@ -14,7 +16,7 @@ public class ad12 {
     public static void main(String[] args) throws FileNotFoundException {
         long startTime = System.currentTimeMillis();
         // code to read from file
-        File file = new File("C:\\Users\\lucyw\\Documents\\adventofcode2021\\09\\input.txt");
+        File file = new File("C:\\Users\\lucyw\\Documents\\adventofcode2021\\12\\input.txt");
         // read number of lines
         Scanner scanner = new Scanner(file);
         int lines = 0;

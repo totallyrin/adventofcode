@@ -14,7 +14,7 @@ public class ad15 {
     public static void main(String[] args) throws FileNotFoundException {
         long startTime = System.currentTimeMillis();
         // code to read from file
-        File file = new File("C:\\Users\\lucyw\\Documents\\adventofcode2021\\09\\input.txt");
+        File file = new File("C:\\Users\\lucyw\\Documents\\adventofcode2021\\15\\input.txt");
         // read number of lines
         Scanner scanner = new Scanner(file);
         int lines = 0;
