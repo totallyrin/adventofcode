@@ -1,12 +1,64 @@
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
 public class ad12 {
-    public static int part1(String[] input) {
-        int count = 0;
 
-        return count;
+    static List<String> visited;
+
+    public static int part1(String[] input) {
+        String[][] lines = new String[input.length][2];
+        for (int i = 0; i < input.length; i++) {
+            lines[i][0] = input[i].split("-")[0];
+            lines[i][1] = input[i].split("-")[1];
+        }
+        List<List<String>> paths = new ArrayList<>();
+        List<String> path = new ArrayList<>();
+        for (String[] line : lines) {
+            visited = new ArrayList<>();
+            if (line[0].equals("start")) {
+                path.add(line[0]);
+                visited.add(line[0]);
+                List<String> temp = pathfind(lines, line[1], line[0], path);
+                if (temp.get(temp.size() - 1).equals("end"))
+                    paths.add(temp);
+            }
+            else if (line[1].equals("start")) {
+                path.add(line[1]);
+                visited.add(line[1]);
+                List<String> temp = pathfind(lines, line[1], line[0], path);
+                if (temp.get(temp.size() - 1).equals("end"))
+                    paths.add(temp);
+            }
+        }
+        for (List<String> p : paths)
+            System.out.println(p);
+        return paths.size();
+    }
+
+    public static List<String> pathfind(String[][] lines, String start, String end, List<String> path) {
+        path.add(end);
+        // if end has been reached, return
+        if (end.equals("end") || path.get(path.size() - 1).equals("end"))
+            return path;
+        // if visited return
+        if (end.equals(end.toLowerCase()) && visited.contains(end))
+            return path;
+        // if not visited, mark as visited
+        if (end.equals(end.toLowerCase()) && !visited.contains(end))
+            visited.add(end);
+
+        for (String[] line : lines) {
+            if (line[0].equals(end)) {
+                path.addAll(pathfind(lines, line[0], line[1], path));
+            }
+            else if (line[1].equals(end)) {
+                path.addAll(pathfind(lines, line[1], line[0], path));
+            }
+        }
+        return path;
     }
 
     public static int part2(String[] input) {
