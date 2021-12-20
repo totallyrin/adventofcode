@@ -1,6 +1,7 @@
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.Scanner;
 
@@ -21,7 +22,7 @@ public class ad12 {
             if (line[0].equals("start")) {
                 path.add(line[0]);
                 visited.add(line[0]);
-                List<String> temp = pathfind(lines, line[1], line[0], path);
+                List<String> temp = pathfind(lines, line[0], line[1], path);
                 if (temp.get(temp.size() - 1).equals("end"))
                     paths.add(temp);
             }
@@ -48,14 +49,14 @@ public class ad12 {
             return path;
         // if not visited, mark as visited
         if (end.equals(end.toLowerCase()) && !visited.contains(end))
-            visited.add(end);
+            visited.add(start);
 
         for (String[] line : lines) {
             if (line[0].equals(end)) {
-                path.addAll(pathfind(lines, line[0], line[1], path));
+                path.addAll(pathfind(lines, line[0], line[1], new ArrayList<>()));
             }
-            else if (line[1].equals(end)) {
-                path.addAll(pathfind(lines, line[1], line[0], path));
+            else if (line[1].equals(end) && !visited.contains(start)) {
+                path.addAll(pathfind(lines, line[1], line[0], new ArrayList<>()));
             }
         }
         return path;
