@@ -4,6 +4,13 @@ import java.util.Scanner;
 
 public class ad24 {
     public static int part1(String[] input) {
+        int w, x, y, z;
+        for (String line : input) {
+            if (line.substring(0, 3).equals("inp")) {
+
+            }
+        }
+
         return 0;
     }
 

@@ -21,14 +21,14 @@ public class ad12 {
             visited = new ArrayList<>();
             if (line[0].equals("start")) {
                 path.add(line[0]);
-                visited.add(line[0]);
+                //visited.add(line[0]);
                 List<String> temp = pathfind(lines, line[0], line[1], path);
                 if (temp.get(temp.size() - 1).equals("end"))
                     paths.add(temp);
             }
             else if (line[1].equals("start")) {
                 path.add(line[1]);
-                visited.add(line[1]);
+                //visited.add(line[1]);
                 List<String> temp = pathfind(lines, line[1], line[0], path);
                 if (temp.get(temp.size() - 1).equals("end"))
                     paths.add(temp);
@@ -45,10 +45,10 @@ public class ad12 {
         if (end.equals("end") || path.get(path.size() - 1).equals("end"))
             return path;
         // if visited return
-        if (end.equals(end.toLowerCase()) && visited.contains(end))
+        if (start.equals(start.toLowerCase()) && visited.contains(start))
             return path;
         // if not visited, mark as visited
-        if (end.equals(end.toLowerCase()) && !visited.contains(end))
+        if (start.equals(start.toLowerCase()) && !visited.contains(start))
             visited.add(start);
 
         for (String[] line : lines) {
