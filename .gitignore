@@ -1,7 +1,8 @@
 .gitignore/
-.idea/*
-.fleet/*
-venv/*
-out/*
-__pycache__/*
+.idea/
+.fleet/
+venv/
+out/
+__pycache__/
 *.txt
+/.fleet/

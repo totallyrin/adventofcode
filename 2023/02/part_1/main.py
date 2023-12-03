@@ -2,6 +2,7 @@ from ...input import read_lines
 
 
 def count_cubes(game):
+    print()
 
 
 lines = read_lines("2023/02/part_1/sample.txt")
