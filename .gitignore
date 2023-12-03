@@ -1,5 +1,7 @@
-.gitignore
-adventofcode2021.iml
-.idea/
-out/
-
+.gitignore/
+.idea/*
+.fleet/*
+venv/*
+out/*
+__pycache__/*
+*.txt
