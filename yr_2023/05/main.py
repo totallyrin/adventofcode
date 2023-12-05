@@ -28,10 +28,10 @@ def part_1(lines):
         for name in maps:
             for mp in input[name + " map"]:
                 diff = int(mp[0]) - int(mp[1])
-                if int(mp[1]) <= int(locations[item]) < int(mp[1]) + int(mp[2]):
+                if int(locations[item]) in range(int(mp[1]), int(mp[1]) + int(mp[2])):
                     locations[item] = str(int(locations[item]) + diff)
                     break
-    return min(locations)
+    return min(list(map(int, locations)))
 
 
 pp = pprint.PrettyPrinter(indent=4)
