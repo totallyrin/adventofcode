@@ -50,8 +50,8 @@ def read_numbers(line: str):
     return int(res)
 
 
-# lines = read_lines("2023/01/part_2/sample.txt")
-lines = read_lines("2023/01/part_2/input.txt")
+# lines = read_lines("yr_2023/01/part_2/sample.txt")
+lines = read_lines("yr_2023/01/part_2/input.txt")
 total = 0
 for ln in lines:
     total += read_numbers(ln)

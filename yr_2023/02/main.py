@@ -65,8 +65,8 @@ def part_2(lines):
 
 pp = pprint.PrettyPrinter(indent=4)
 
-# l = read_lines("2023/02/sample.txt")
-l = read_lines("2023/02/input.txt")
+# l = read_lines("yr_2023/02/sample.txt")
+l = read_lines("yr_2023/02/input.txt")
 
 print(part_1(l.copy()))
 print(part_2(l.copy()))
